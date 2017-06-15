@@ -1,0 +1,443 @@
+html {
+  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", Heiti, "黑体", sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+canvas,
+progress{
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+[hidden],
+template {
+  display: none;
+}
+a {
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+mark {
+  color: #000;
+  background: #ff0;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+img {
+  border: 0;
+}
+
+figure {
+  margin: 1em 40px;
+}
+hr {
+  height: 0;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+legend {
+  padding: 0;
+  border: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width:100%;
+  max-width:100%;
+}
+table>thead>tr>th{
+  padding:8px;
+  border-bottom:2px solid #ddd;
+}
+table>tbody>tr>td{
+  padding:8px;
+  border-top:1px solid #ddd;
+}
+table>tbody>tr:nth-of-type(odd){
+  background-color:#f9f9f9;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  color: #909090;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #007fff;
+  text-decoration: none;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+
+hr {
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: inherit;
+  font-weight: 500;
+  color: inherit;
+  margin:20px 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2{
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+p {
+  margin:20px 0;
+}
+.lead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .lead {
+    font-size: 21px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-md{
+    font-size: 16px;
+}
+
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+dt,
+dd {
+  line-height: 1.42857143;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+
+address {
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 1.42857143;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #ffc0cb;
+  border-radius: 4px;
+  margin:auto 3px;
+}
+
+pre {
+  display: block;
+  padding: 10px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f2f0;
+  border: 2px solid #e0dfcc;
+  border-radius: 8px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* 主页基本布局样式 */
+.sidebar{
+    display:flex;
+    width:100%;
+    background-color:#202020;
+}
+.sidebar a{
+  color:#fff;
+}
+.sidebar .description{
+  color:rgba(255,255,255,0.5);
+}
+.sidebar-sticky{
+  margin:auto;
+  padding:10px 15px;
+}
+.content{
+  width:100%;
+  padding:15px;
+}
+
+@media (min-width: 768px) {
+  .sidebar{
+    position:fixed;
+    width:22%;
+    top:0;
+    left:0;
+    bottom:0;
+  }
+  .content{
+    width:78%;
+    position:relative;
+    left:22%;
+  }
+
+}
+
+.post{
+  padding:18px ;
+  margin-bottom:18px;
+  border-bottom:1px dashed #d9d9d9;
+  background-color:#f5f5f5;
+  color:#777;
+}
+.post-title{
+  margin:0;
+}
+.post a{
+  display:block;
+  color:#555;
+}
+.post a:hover{
+  color:#000;
+}
+@media (max-width: 768px){
+  .post-title{
+    font-size:16px;
+  }
+  .post-date{
+    font-size:14px;
+  }
+}
+
+/* article样式设置 */
+.article-body{
+  background-color:#eee;
+}
+.article{
+  background-color:#fff;
+  margin-left:auto;
+  margin-right:auto;
+  padding:15px;
+}
+.article h1,.article h2,.article h3,.article h4,.article h5,.article h6{
+  color:#00a3cf;
+}
+.article a{
+  color:#337ab7;
+}
+@media (min-width: 768px) {
+  .article{
+    max-width:660px;
+  }
+}
+.article p{
+  text-indent:2em;
+}
+.article img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+/* 文章页导航栏 */
+.article-nav{
+  background-color:#333;
+  padding:0 10px;
+  text-align:center;
+}
+.article-nav a{
+  padding:0 5px;
+  line-height:3;
+  color:#ccc;
+}
+.article-nav a:hover{
+  color:#fff;
+}
+
+
+.article-nav a,.post a{
+  -webkit-transition:all 0.3s ease-in-out;
+  -moz-transition:all 0.3s ease-in-out;
+  -ms-transition:all 0.3s ease-in-out;
+  -o-transition:all 0.3s ease-in-out;
+  transition:all 0.3s ease-in-out;
+}
+
+/* 文章设置 */
+.article{
+  counter-reset:heading;
+}
+.article h2{
+  counter-reset:subheading;
+}
+.article h2::before{
+  counter-increment:heading;
+  content:counter(heading)". ";
+}
+.article h4::before{
+  counter-increment:subheading;
+  content:counter(heading)"."counter(subheading)" ";
+}
