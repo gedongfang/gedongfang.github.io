@@ -1,9 +1,13 @@
 html {
+  height:100%;
+  width:100%;
   font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", Heiti, "黑体", sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 body {
+  height:100%;
+  width:100%;
   margin: 0;
 }
 article,
@@ -184,7 +188,7 @@ h6{
   font-family: inherit;
   font-weight: 500;
   color: inherit;
-  margin:20px 0;
+  margin:0 0;
 }
 
 h1 {
@@ -311,11 +315,18 @@ pre code {
 
 /* 主页基本布局样式 */
 .sidebar{
-    display:flex;
-    width:100%;
-    background-color:#202020;
+  display:flex;
+  width:100%;
+  height:230px;
+  background-color:#202020;
 }
 .sidebar a{
+  color:#fff;
+}
+.sidebar .hide a{
+  color:#202020;
+}
+.sidebar .hide a:hover{
   color:#fff;
 }
 .sidebar .description{
@@ -327,23 +338,31 @@ pre code {
 }
 .content{
   width:100%;
-  padding:15px;
+  height:90%; 
+   height:-webkit-calc(100% - 230px);
+   height:   -moz-calc(100% - 230px);
+   height:        calc(100% - 230px);
 }
 
 @media (min-width: 768px) {
   .sidebar{
     position:fixed;
-    width:22%;
+    width:18%;
+    height:100%;
     top:0;
     left:0;
     bottom:0;
   }
   .content{
-    width:78%;
+    width:82%;
+    height:100%;
     position:relative;
-    left:22%;
+    left:18%;
   }
-
+	.sidebar-sticky{
+	  margin:50% auto 50% auto;
+	  padding:10px 15px;
+	}
 }
 
 .post{
@@ -371,7 +390,17 @@ pre code {
     font-size:14px;
   }
 }
+iframe{
+	height:100%; 
+	width:100%;
 
+}
+.iframe_body{
+	margin:20px;
+}
+.iframe_body>h2{
+	color:#777;
+}
 /* article样式设置 */
 .article-body{
   background-color:#eee;
