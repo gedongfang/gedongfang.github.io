@@ -396,7 +396,7 @@ iframe{
 
 }
 .iframe_body{
-	margin:20px;
+	padding:20px;
 }
 .iframe_body>h2{
 	color:#777;
