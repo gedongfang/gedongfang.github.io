@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>使用github实现版本控制</title>
+  <link rel="stylesheet" href="../../css/index.css">
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+</head>
+<body class=" article-body">
+<div class="article ">
+		
+<h1 class="text-center">使用github实现版本控制</h1>			      
+
+<p>打上王者后觉得农药玩腻了，再加上最近被经理拉来做前端，就计划认真看看前端的东西。于是拿<a href="https://github.com/jiangshanmeta/jiangshanmeta.github.io" target="_blank">姜山</a>的代码做了这个博客，看一看人家具体是怎么实现的。</p>
+
+<p>又刚好准备给一个非计算机相关专业的朋友介绍如何用github来做文章的版本控制，干脆写一篇博客放上来试试。</p>
+
+<h2>介绍</h2>
+
+<p>你在写论文、小说或者其他什么的东西的时候，第一天写了王尔德对萨冈产生了哪些影响，第二天觉得太幼稚了改成卡尔维诺对王小波的影响，第三天觉得还是萨冈更可爱一点，想改回去，怎么办？</p>
+<p>如果你写的文章是放在github上的话，遇到这种问题就可以通过查看历史提交记录来恢复到之前的版本，或者在某个历史记录节点创建新的分支（命运石之门？）</p>
+<h2>上手</h2>
+<p>首先去<a href="github.com">github.com</a>官网注册，然后到<a href="desktop.github.com">desktop.github.com</a>下载客户端(<a href="https://github-windows.s3.amazonaws.com/GitHubSetup.exe">不行的话试试这个</a>)，打开客户端，登录。</p> 
+<p>
+  选择左上角的加号，填上自己喜欢的名字和路径，create a new repository
+  <img src="1.png" />
+</p>
+<p>
+  去路径下新建一个文本文件，写入一些内容，保存后回到客户端，在Changes里面可以看到我们新建的文件以及添加的内容，在左下角填上关于这次提交的Summary与Description，点击Commit to master，再点击右上角Publish
+  <img src="2.png" />
+  这样，你在github上的repositories里面就会出现这个新添加的项目。如果你继续修改文件内容并保存，或者在路径下面添加了新文件的话，可以到客户端的Changes下面重复刚才的commit操作，不过此时Publish已经变成Sync了
+</p>
+<p>
+  最后，我们回到<a href="github.com">github.com</a>上看看
+  <img src="3.png" />
+  在右下角找到新提交的repositories，可以看到提交上来的各种文件
+  <img src="4.png" />
+  点击commits，可以查看历史提交记录
+  <img src="5.png" />
+  点击每条记录最后面的 < > 按钮，就可以查看那条记录对应的日期下所有文件的内容
+</p>
+<h2>结语</h2>
+<p>学会提交以及查看历史提交记录，就已经可以初步用github来对自己的文章、图片、文件进行版本控制了，<a href="https://www.zhihu.com/question/20070065">知乎</a>上关于github的用途用法有更加详细的讨论。</p>
+<p title="某个时间线上小圆魔女化后，丘比询问晓美焰为什么不去战斗" style="cursor:pointer">私の戦场はここじゃない</p>
+</div> 
+</body>
+</html>
