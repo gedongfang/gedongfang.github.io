@@ -166,12 +166,41 @@
 			), floralwhite;
 		background-blend-mode: multiply;
 	}
-	#div8{
-		background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+	/* 蝉原则，通过质数来增加随机真实性(重复单元宽度是子元素宽度的最小公倍数) */
+	#div16{
+		background: hsl(80, 40%, 90%);
+		background-image: 
+			linear-gradient(90deg, #fb3 11px, transparent 0),
+			linear-gradient(90deg, #ab4 23px, transparent 0),
+			linear-gradient(90deg, #655 41px, transparent 0);
+		background-size: 41px 100%, 61px 100%,83px 100%;
 	}
-	#div8{
-		background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+	#div17{
+		width: 186px;	
+		height: 186px;
+		padding: 1em;
+		border: 1em solid transparent;
+		background: linear-gradient(white,white) padding-box,
+					repeating-linear-gradient(-45deg, 
+						red 0, red 12.5%, 
+						transparent 0, transparent 25%, 
+						#58a 0, #58a 37.5%, 
+						transparent 0, transparent 50%)
+					0 / 5em 5em;
 	}
+	@keyframes ants { to { background-position: 100% 100% } }
+	#div18{
+		border: 1px solid transparent;
+		background: linear-gradient(white, white) padding-box,
+		            repeating-linear-gradient(-45deg, black 0, black 25%, transparent 0, transparent 50%) 0 / .5em .5em;
+		animation: ants 12s linear infinite;
+	}
+	#div19{
+		border: .15em solid transparent;
+		border-image: 100%  0 0  linear-gradient(90deg, currentColor 4em, transparent 0);
+		padding-top: .5em;
+	}
+
 </style>
 <body>
 <div id="div1"><div></div></div>
@@ -203,6 +232,14 @@
 <div id="div14"></div>
 
 <div id="div15"></div>
+
+<div id="div16"></div>
+
+<div id="div17"></div>
+
+<div id="div18"></div>
+
+<div id="div19">This is a footnote.</div>
 
 </body>
 </html>
