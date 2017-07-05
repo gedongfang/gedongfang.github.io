@@ -104,6 +104,74 @@
 			linear-gradient(90deg, white 1px, transparent 0);
 		background-size: 30px 30px;
 	}
+	#div12{
+		background: #58a;
+		background-image:
+			linear-gradient(white 2px,transparent 0),
+			linear-gradient(90deg, white 2px, transparent 0),
+			linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0), 
+			linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);
+		background-size: 75px 75px, 75px 75px,
+						 15px 15px, 15px 15px;
+	}
+	#div13{
+		background: #655;
+		background-image: radial-gradient(tan 30%,transparent 0),
+						  radial-gradient(tan 30%,transparent 0);
+		background-size: 30px 30px;
+		background-position: 0 0, 15px 15px;
+	}
+	#div14{
+		background：#eee;
+		background-image: 
+			linear-gradient(45deg, rgba(0,0,0,.25) 25%,transparent 0, transparent 75%, rgba(0,0,0,.25) 0),
+			linear-gradient(45deg, rgba(0,0,0,.25) 25%,transparent 0, transparent 75%, rgba(0,0,0,.25) 0);
+			background-position: 0 0, 15px 15px;
+			background-size: 30px 30px;
+	} 
+	#div15{
+		background:
+			repeating-linear-gradient(
+				transparent,
+				transparent 10px,
+				lightcoral 10px,
+				lightcoral 15px,
+				transparent 15px,
+				transparent 20px,
+				lightcoral 15px,
+				lightcoral 40px,
+				transparent 40px,
+				transparent 45px,
+				lightcoral 45px,
+				lightcoral 50px,
+				transparent 50px,
+				transparent 80px
+			),
+			repeating-linear-gradient(
+				90deg,
+				transparent,
+				transparent 10px,
+				lightcoral 10px,
+				lightcoral 15px,
+				transparent 15px,
+				transparent 20px,
+				lightcoral 15px,
+				lightcoral 40px,
+				transparent 40px,
+				transparent 45px,
+				lightcoral 45px,
+				lightcoral 50px,
+				transparent 50px,
+				transparent 80px
+			), floralwhite;
+		background-blend-mode: multiply;
+	}
+	#div8{
+		background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+	}
+	#div8{
+		background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+	}
 </style>
 <body>
 <div id="div1"><div></div></div>
@@ -127,6 +195,14 @@
 <div id="div10"></div>
 
 <div id="div11"></div>
+
+<div id="div12"></div>
+
+<div id="div13"></div>
+
+<div id="div14"></div>
+
+<div id="div15"></div>
 
 </body>
 </html>
