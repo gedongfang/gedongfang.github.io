@@ -7,6 +7,7 @@
 	    flex-wrap:wrap;
 	    justify-content:space-around;
 	    align-items:flex-start;
+	    background: #DDDDDD;
 	}
 	body > div {
 		margin: 10px;
@@ -25,7 +26,44 @@
 		border-radius: 100% 0 0 / 100% 0 0;/* 水平／垂直 */
 		background: #fb3;
 	}
-
+	#div4 > div {
+		width:100px;
+		height: 100px;
+		margin-left: 60px;
+		margin-top: 50px;
+		position: relative;
+	}
+	#div4 > div::before {
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		background: #58a; 
+		transform: skew(-25deg);
+	}
+	#div5 > div {
+		width: 200px;
+		height: 200px;
+		transform: rotate(45deg);
+		overflow: hidden;
+	}
+	#div5 img {
+		max-width: 100%;
+		transform: rotate(-45deg) scale(1.42);
+	}
+	#div6 > img{
+		width: 250px;
+		height: 180px;
+		clip-path: polygon(50% 30%, 100% 45%, 50% 60%, 0 45%);
+		transition: 1s clip-path;
+	}
+	#div6 > img:hover{
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+	#div7 {
+		background: #58a;
+		background: linear-gradient(-45deg,transparent 15px,#58a 0);
+	}
 </style>
 <body>
 <div id="div1"></div>
@@ -34,6 +72,14 @@
 <div id="div2"></div>
 
 <div id="div3"></div>
+
+<div id="div4"><div></div></div>
+
+<div id="div5"><div><img src="homura.png" /></div></div>
+
+<div id="div6"><img src="homura.jpeg" /></div>
+
+<div id="div7"></div>
 
 
 </body>
