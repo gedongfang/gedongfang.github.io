@@ -54,10 +54,12 @@
 	#div6 > img{
 		width: 250px;
 		height: 180px;
+		-webkit-clip-path: polygon(50% 30%, 100% 45%, 50% 60%, 0 45%);
 		clip-path: polygon(50% 30%, 100% 45%, 50% 60%, 0 45%);
 		transition: 1s clip-path;
 	}
 	#div6 > img:hover{
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
 	#div7 {
