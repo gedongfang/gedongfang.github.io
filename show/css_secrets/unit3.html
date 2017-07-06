@@ -1,0 +1,40 @@
+<html>
+<style type="text/css" media="screen">
+	body {
+	    display: -webkit-flex; 
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap:wrap;
+	    justify-content:space-around;
+	    align-items:flex-start;
+	}
+	body > div {
+		margin: 10px;
+		width: 250px;	
+		height: 250px;
+	}
+	#div1 {
+		border-radius: 50%;
+		background: #fb3;
+	}
+	#div2 {
+		border-radius: 50% / 100% 100% 0 0;/* 水平／垂直 */
+		background: #fb3;
+	} 
+	#div3 {
+		border-radius: 100% 0 0 / 100% 0 0;/* 水平／垂直 */
+		background: #fb3;
+	}
+
+</style>
+<body>
+<div id="div1"></div>
+
+<!-- css常规重复方式。四个值顺时针，三个值则第四个等于第二个，，两个值则第三个等于第一个 -->
+<div id="div2"></div>
+
+<div id="div3"></div>
+
+
+</body>
+</html>
