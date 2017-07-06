@@ -41,15 +41,9 @@
 		background: #58a; 
 		transform: skew(-25deg);
 	}
-	#div5 > div {
-		width: 200px;
-		height: 200px;
-		transform: rotate(45deg);
-		overflow: hidden;
-	}
-	#div5 img {
-		max-width: 100%;
-		transform: rotate(-45deg) scale(1.42);
+	#div5 {
+		background: #58a;
+		background: linear-gradient(-45deg,transparent 15px,#58a 0);
 	}
 	#div6 > img{
 		width: 250px;
@@ -62,10 +56,7 @@
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-	#div7 {
-		background: #58a;
-		background: linear-gradient(-45deg,transparent 15px,#58a 0);
-	}
+
 </style>
 <body>
 <div id="div1"></div>
@@ -77,11 +68,11 @@
 
 <div id="div4"><div></div></div>
 
-<div id="div5"><div><img src="homura.png" /></div></div>
+<div id="div5"></div>
 
 <div id="div6"><img src="homura.jpeg" /></div>
 
-<div id="div7"></div>
+
 
 
 </body>
