@@ -41,22 +41,29 @@
 		background: #58a; 
 		transform: skew(-25deg);
 	}
-	#div5 {
-		background: #58a;
-		background: linear-gradient(-45deg,transparent 15px,#58a 0);
-	}
-	#div6 > img{
+	#div5 > img{
 		width: 250px;
 		height: 180px;
 		-webkit-clip-path: polygon(50% 30%, 100% 45%, 50% 60%, 0 45%);
 		clip-path: polygon(50% 30%, 100% 45%, 50% 60%, 0 45%);
 		transition: 1s clip-path,1s -webkit-clip-path;
 	}
-	#div6 > img:hover{
+	#div5 > img:hover{
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-
+	#div6 {
+		background: linear-gradient(-45deg,transparent 15px,#58a 0);
+	}
+	#div7 {
+		background: 
+			linear-gradient(135deg, transparent 15px, #58a 0) top left,
+			linear-gradient(-135deg, transparent 15px, #58a 0) top right,
+			linear-gradient(45deg, transparent 15px, #58a 0) bottom left,
+			linear-gradient(-45deg, transparent 15px, #58a 0) bottom right; 
+			background-size: 50% 50%;/* 宽高 */
+			background-repeat: no-repeat;
+	}
 </style>
 <body>
 <div id="div1"></div>
@@ -68,11 +75,11 @@
 
 <div id="div4"><div></div></div>
 
-<div id="div5"></div>
+<div id="div5"><img src="homura.jpeg" /></div>
 
-<div id="div6"><img src="homura.jpeg" /></div>
+<div id="div6"></div>
 
-
+<div id="div7"></div>
 
 
 </body>
