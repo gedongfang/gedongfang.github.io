@@ -70,6 +70,27 @@
 		background-size: 50% 50%;
 		background-repeat: no-repeat;
 	}
+	#div8 > div {
+		width:100px;
+		height: 50px;
+		position: relative;
+		display: inline-block;
+		padding: .3em 1em 0;
+	}
+	#div8 > div::before {
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		background: #ccc;
+		background-image: linear-gradient(hsla(0,0%,100%,.6), hsla(0,0%,100%,0.1));
+		border: 1px solid rgba(0,0,0,.4);
+		border-bottom: none;
+		border-radius: .5em .5em 0 0;
+		box-shadow: 0 .15em white inset;
+		transform: perspective(.5em) rotateX(5deg);
+		transform-origin: bottom;
+	}
 </style>
 <body>
 <div id="div1"></div>
@@ -87,7 +108,9 @@
 
 <div id="div7"></div>
 
-<div id="div8"></div>
+<div id="div8"><div></div></div>
+
+<div id="div9"></div>
 
 
 </body>
