@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<body>
+js对象转json<br /><br />
+<textarea id="detail" name="content" style="width:1000px;height:300px"></textarea><br /><br />
+
+<button  onclick="cli()">转换</button><br /><br />
+<div id="content"></div>
+<script type="text/javascript">
+	function cli () {
+		document.getElementById("content").innerText=JSON.stringify(eval("("+document.getElementById("detail").value+")"));
+	}
+</script>
+
+</body>
+</html>
