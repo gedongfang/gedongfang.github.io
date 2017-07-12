@@ -344,9 +344,10 @@ pre code {
    height:        calc(100% - 230px);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1105px) {
   .sidebar{
     position:fixed;
+    display:block;
     width:18%;
     height:100%;
     top:0;
@@ -360,8 +361,7 @@ pre code {
     left:18%;
   }
 	.sidebar-sticky{
-	  margin:50% auto 50% auto;
-	  padding:10px 15px;
+	  padding:40% 2% 0% 10%;
 	}
 }
 
