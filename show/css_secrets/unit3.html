@@ -70,14 +70,33 @@
 		background-size: 50% 50%;
 		background-repeat: no-repeat;
 	}
-	#div8 > div {
+	#div8 {
+		background: #58a;
+		clip-path: polygon(
+			20px 0, calc(100% - 20px) 0, 100% 20px,
+			100% calc(100% - 20px), calc(100% - 20px) 100%,
+			20px 100%, 0 calc(100% - 20px), 0 20px
+		);
+	}
+	#div9 {
+		border:20px solid #58a;
+		width: 210px;	
+		height: 210px;
+		border-image: 1 url('data:image/svg+xml,\
+			     				<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" fill="%2358a">\
+								<polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2" />\
+			                    </svg>');
+		background: #58a;
+		background-clip: padding-box;
+	}
+	#div10 > div {
 		width:100px;
 		height: 50px;
 		position: relative;
 		display: inline-block;
 		padding: .3em 1em 0;
 	}
-	#div8 > div::before {
+	#div10 > div::before {
 		content: '';
 		position: absolute;
 		top: 0; right: 0; bottom: 0; left: 0;
@@ -90,6 +109,71 @@
 		box-shadow: 0 .15em white inset;
 		transform: perspective(.5em) rotateX(5deg);
 		transform-origin: bottom;
+	}
+
+	.pie {
+		border-radius:50%;
+		background: yellowgreen;
+		background-image: 
+			linear-gradient(to right, transparent 50%, #655 0); 
+	}
+	@keyframes spin {
+		to { transform: rotate(.5turn); }
+	}
+	@keyframes bg {
+		50% { background: #655; }
+	}
+	.pie::before {
+		content:'';
+		display: block;
+		margin-left: 50%;
+		height: 100%;
+		border-radius: 0 100% 100% 0 / 50%;/* 半圆 */
+		background-color: inherit;
+		transform-origin: left; /* 0 50% */
+		/*transform: rotate(.1turn);*/   /* 0.1圈 */
+		animation: spin 3s linear infinite,
+				   bg 6s step-end infinite;
+	}
+	.pie_paused::before {
+		animation: spin 50s linear infinite,
+				   bg 100s step-end infinite;
+		animation-delay: inherit;
+		animation-play-state: paused;	
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+	circle {
+		fill: yellowgreen;
+		stroke: #655;
+		stroke-width: 15%;
+	}
+	#div15 circle {
+		stroke-dasharray:20% 10%;
+	}
+	@keyframes fillup {
+		to { stroke-dasharray: 158% 158%; }
+	}
+	#div16 svg {
+		transform: rotate(-90deg);
+		background: yellowgreen;
+		border-radius: 50%;
+	}
+	#div16 circle {
+		stroke-width: 50%;
+		stroke-dasharray:0 158%;
+		animation: fillup 5s linear infinite;
+	}
+	.svg {
+		transform: rotate(-90deg);
+		background: yellowgreen;
+		border-radius: 50%;
+	}
+	.circle {
+		stroke-width: 32;
 	}
 </style>
 <body>
@@ -108,10 +192,49 @@
 
 <div id="div7"></div>
 
-<div id="div8"><div></div></div>
+<div id="div8"></div>
 
 <div id="div9"></div>
 
+<div id="div10"><div></div></div>
+
+<div id="div11" class="pie"></div>
+
+<div id="div12" class="pie pie_paused" style="animation-delay: -20s"></div>
+
+<div id="div13" class="pie pie_paused" style="animation-delay: -60s"></div>
+
+<div id="div14">
+	<svg>
+		<circle r="30%" cx="50%" cy="50%" />
+	</svg>
+</div>
+
+<div id="div15">
+	<svg>
+		<circle r="30%" cx="50%" cy="50%" />
+	</svg>
+</div>
+
+<div id="div16">
+	<svg>
+		<circle r="25%" cx="50%" cy="50%" />
+	</svg>
+</div>
+
+<div id="div17">
+	<svg viewBox="0 0 32 32" class="svg">
+		<circle r="16" cx="16" cy="16" class="circle" style="stroke-dasharray: 25 100"/>
+	</svg>
+</div>
+
+<div id="div18">
+	<svg viewBox="0 0 32 32" class="svg">
+		
+		<circle r="16" cx="16" cy="16" class="circle" style="stroke-dasharray: 55 100"/>
+		<circle r="16" cx="16" cy="16" class="circle" style="stroke-dasharray: 33 100;stroke: red;fill: transparent;"/>
+	</svg>
+</div>
 
 </body>
 </html>
