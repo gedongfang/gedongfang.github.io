@@ -13,13 +13,18 @@
 		margin: 10px;
 		width: 250px;	
 		height: 250px;
+		background: #fb3;
 	}
 	#div1 {
-		border-radius: 50%;
-		background: #fb3;
+		box-shadow: 3px 3px 6px -3px black;/* 右偏移 下偏移 模糊半径 扩张半径 颜色值 */
+	}
+	#div2 {
+		box-shadow: 5px 0px 5px -5px black,
+					-5px 0px 5px -5px black;
 	}
 </style>
 <body>
 <div id="div1"></div>
+<div id="div2"></div>
 </body>
 </html>
