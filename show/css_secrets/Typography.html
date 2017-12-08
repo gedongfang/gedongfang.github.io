@@ -11,11 +11,15 @@
 	}
 	body > div {
 		margin: 10px;
-		width: 450px;	
+		width: 400px;	
 		height: 250px;
 		background: #fb3;
 	}
-	
+
+	#div1,#div3,#div5 {
+		padding: 10px
+	}
+
 	#div1 dd + dt::before {
 		content:"\A";
 		white-space: pre;
@@ -28,6 +32,7 @@
 	#div1 dl,dt,dd {
 		display: inline;
 	}
+
 	#div2 {
 		padding: 0px;
 		line-height: 1.7;
@@ -37,11 +42,13 @@
 		background-image: linear-gradient(rgba(0,0,0,.2) 50%,
 										transparent 0);
 	}
+
 	#div3 span {
 		background: linear-gradient(90deg, gray 66%, transparent 0) repeat-x;
 		background-size: .2em 2px;
 		background-position: 0 1em;
 	}
+
 	#div4 > div:first-child{
 		background: hsl(210, 13%, 60%);
 		color: hsl(210, 13%, 30%);
@@ -65,6 +72,73 @@
 					 3px 3px black, 4px 4px black,
 					 5px 5px black, 6px 6px black,
 					 7px 7px black, 8px 8px black;
+	}
+
+	#div5 > div {
+		margin: 10px;
+	}
+	#div5 input[type="checkbox"] {
+		position: absolute;
+		clip: rect(0,0,0,0);
+	}
+	#div5 > div:first-child input[type="checkbox"] + label::before {
+		content: "\a0";
+		display: inline-block;
+		vertical-align: .1em;
+		width: .8em;
+		height: .8em;
+		margin-right: .2em;
+		border-radius: .2em;
+		background: yellowgreen;
+		text-indent: .15em;
+		line-height: .65;
+	}
+	#div5 > div:first-child input[type="checkbox"]:checked + label::before {
+		content: "\2713";
+		background: yellowgreen;
+	}
+	#div5 > #switch input[type="checkbox"] + label {
+		display: inline-block;
+		padding: .3em .5em;
+		border: 1px solid rgba(0, 0, 0, .2);
+		border-radius: .3em;
+		background: #ccc;
+		background-image: linear-gradient(#ddd, #bbb) 
+		box-shadow: 0 1px white inset;
+		text-align: center;
+		text-shadow: 0 1px 1px white;
+	}
+	#div5 > #switch input[type="checkbox"]:checked + label,
+	#div5 > #switch input[type="checkbox"]:active + label{
+		box-shadow: .05em .1em .2em rgba(0, 0, 0, .6) inset;
+		border-color: rgba(0, 0, 0, .3);
+		background: #bbb;
+	}
+	#div6 {
+		position: relative;
+		display: inline-block;
+		width: auto;
+		background: transparent;
+	}
+	#div6 > div {
+		position: absolute;
+		max-width: 100%;
+		top: 0; bottom: 0; left: 0;
+		width: 50%;
+		overflow: hidden;
+		resize: horizontal;
+	}
+	#div6 img {
+		display: block;
+		user-select: none;
+	}
+	#div6 > div::before {
+		content: '';
+		position: absolute;
+		bottom: 0; right: 0;
+		width: 12px; height: 12px;
+		background: linear-gradient(-45deg, red 50%, transparent 0);
+		cursor: ew-resize;
 	}
 </style>
 <body>
@@ -109,6 +183,23 @@
 	<div id="projection">
 		The only way to get rid of a temptation is to yield to it.
 	</div>
+</div>
+<div id="div5">
+	使用隐藏的复选框控制样式以保持状态
+	<div>
+		<input type="checkbox" id="awesome"/>
+		<label for="awesome" onselectstart="return false;">Awesome!</label>
+	</div>
+	<div id="switch">
+		<input type="checkbox" id="awesome2"/>
+		<label for="awesome2" onselectstart="return false;">Awesome!</label>
+	</div>
+</div>
+<div id="div6">
+	<div>
+		<img src="WechatIMG22.jpeg" alt="Before" draggable="false"/>
+	</div>
+	<img src="WechatIMG21.jpeg" alt="After" draggable="false"/>
 </div>
 </body>
 </html>
