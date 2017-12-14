@@ -11,15 +11,48 @@
 	}
 	body > div {
 		margin: 10px;
-		width: 250px;	
-		height: 250px;
+		width: 350px;	
+		height: 350px;
 	}
 	#div1 {
-		border-radius: 50%;
+		position: relative;
 		background: #fb3;
+	}
+	#div1 > div {
+		padding: 10px;
+		background: #655;
+		position: absolute;
+		top: 50%; left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	#div2 {
+		display: flex;
+		flex-flow: column;
+	}
+	#div2 header{
+		background: red;
+	}
+	#div2 main{
+		background: green;
+		flex:1;
+	}
+	#div2 footer{
+		background: yellow;
 	}
 </style>
 <body>
-<div id="div1"></div>
+<div id="div1">
+	<div>
+		<h1>Am I centered yet?</h1>
+		<p>Center my,please!</p>
+	</div>
+</div>
+<div id="div2">
+	<div>
+		<header>header</header>
+		<main>main</main>
+		<footer>footer</footer>
+	</div>
+</div>
 </body>
 </html>
