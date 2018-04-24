@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			background: #8EE5EE;
+		}
+		div {
+			background: #FF6A6A;
+			height: 100px; width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script type="text/javascript">
+	/**
+	 * 假设该div可以被拖动
+	 * 假设参数只传递计算样式
+	 */
+	let div = document.querySelector("div")
+	div.addEventListener("click", function(event){
+		let style = getComputedStyle(this)
+		if(event.offsetX < 0 || event.offsetY < 0 || event.offsetX > style.width || event.offsetY > style.heigth){
+			//点击未命中
+			return
+		}
+		parent.sentry.dragStart(event.offsetX, event.offsetY, style)
+	})
+	function mousedownEvent(clientX, clientY, screenX, screenY){
+		let event = document.createEvent("MouseEvents")
+		event.initMouseEvent("click", true, true, document.defaultView, 0, screenX, screenY, clientX, clientY)
+		div.dispatchEvent(event)
+	}
+
+</script>
+</html>

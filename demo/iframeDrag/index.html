@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="data:image/ico;base64,aWNv">
+	<style>
+		.title,.curtain,iframe{
+			padding: 0px;
+			margin: 0px;
+			border-width: 0px;
+			width: 40%;
+			margin-left: 5%;
+			display: inline-block;
+		}
+		.title{
+			display: inline-block;	
+			height: 20px;
+		}
+		iframe{
+			height: 400px;
+		}
+		#transition{
+			display: none;
+			position: absolute;
+			opacity: 0.5;
+			z-index: 1;
+			pointer-events: none;
+		}
+		.curtain{
+			position: absolute;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">iframeA：</div>
+	<div class="title">iframeB：</div>
+	<br />
+	<div id="curtainA" class="curtain"></div>
+	<iframe name="iframeA" src="iframeA.html"></iframe>
+	<div id="curtainB" class="curtain"></div>
+	<iframe name="iframeB" src="iframeB.html"></iframe>
+	<div id="transition"></div>
+	
+</body>
+<script type="text/javascript">
+	var sentry = {
+		status: false,
+		offsetX: 0,
+		offsetY: 0,
+		dragStart(offsetX, offsetY, style) {
+			this.status = true
+			this.offsetX = offsetX
+			this.offsetY = offsetY
+			//假设只读取宽、高、背景色
+			transition.style.height = style.height
+			transition.style.width = style.width
+			transition.style.background = style.backgroundColor
+		},
+		dragEnd() {
+			this.status = false
+			transition.style.display = "none"
+		}
+	}
+	curtainA.addEventListener("mousedown", event => {
+		iframeA.mousedownEvent(event.offsetX, event.offsetY, event.screenX, event.screenY)
+	})
+	curtainB.addEventListener("mouseup", event => {
+		iframeB.mouseupEvent(event.offsetX, event.offsetY, event.screenX, event.screenY)
+	})
+	document.addEventListener('mousemove', event => {
+	 	if(sentry.status){
+	 		transition.style.display = "block"
+	 		transition.style.top = event.clientY - sentry.offsetY + "px"
+	 		transition.style.left = event.clientX - sentry.offsetX + "px"
+	 	}
+	}, false)
+	document.addEventListener('mouseup', event => {
+	 	sentry.dragEnd()
+	}, false)
+
+	document.body.onselectstart = function(){ 
+	    return false;
+	}
+</script>
+</html>

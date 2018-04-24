@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			background: #87CEFF;
+		}
+		div{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	document.addEventListener('click', event => {
+		if(parent.sentry.status){
+			parent.sentry.dragEnd()
+			let node = document.createElement("div")
+			let style = getComputedStyle(parent.transition)
+			node.style.height = style.height
+			node.style.width = style.width
+			node.style.background = style.backgroundColor
+			node.style.top = event.clientY - parent.sentry.offsetY + "px"
+			node.style.left = event.clientX - parent.sentry.offsetX + "px"
+			document.querySelector("body").appendChild(node)
+		}	
+	}, false)
+	function mouseupEvent(clientX, clientY, screenX, screenY){
+		let event = document.createEvent("MouseEvents")
+		event.initMouseEvent("click", true, true, document.defaultView, 0, screenX, screenY, clientX, clientY)
+		document.dispatchEvent(event)
+	}
+</script>
+</html>
