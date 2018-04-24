@@ -3,36 +3,77 @@
 <head>
 	<meta charset="utf-8">
 	<style>
-		body{
+		body {
+			display: -webkit-flex; 
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap:wrap;
+		    justify-content:space-around;
+		    align-items:flex-start;
 			background: #8EE5EE;
 		}
 		div {
+			margin: 10px;
+		}
+		div:nth-child(1) {
 			background: #FF6A6A;
 			height: 100px; width: 100px;
+		}
+		div:nth-child(2) {
+			background: #FFE7BA;
+			height: 50px; width: 100px;
+		}
+		div:nth-child(3) {
+			background: #32CD32;
+			height: 100px; width: 50px;
+		}
+		div:nth-child(4) {
+			background: #EED2EE;
+			height: 100px; width: 100px;
+			border-radius: 100px;
+		}
+		div:nth-child(5) {
+			background: #6CA6CD;
+			height: 50px; width: 50px;
+			border-radius: 50px
+		}
+		div:nth-child(6) {
+			background: #EE7600;
+			height: 25px; width: 25px;
+			border-radius: 25px
 		}
 	</style>
 </head>
 <body>
 	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
 </body>
 <script type="text/javascript">
 	/**
-	 * 假设该div可以被拖动
+	 * 假设div可以被拖动
 	 * 假设参数只传递计算样式
 	 */
-	let div = document.querySelector("div")
-	div.addEventListener("click", function(event){
-		let style = getComputedStyle(this)
-		if(event.offsetX < 0 || event.offsetY < 0 || event.offsetX > style.width || event.offsetY > style.heigth){
-			//点击未命中
-			return
-		}
-		parent.sentry.dragStart(event.offsetX, event.offsetY, style)
-	})
+	let divAll = document.querySelectorAll("div")
+	for(let i = 0; i < divAll.length; i ++){
+		divAll[i].addEventListener("click", function(event){
+			let style = getComputedStyle(this)
+			if(event.offsetX < 0 || event.offsetY < 0 || event.offsetX > style.width.slice(0,-2) || event.offsetY > style.height.slice(0,-2)){
+				//点击未命中
+				return
+			}
+			parent.sentry.dragStart(event.offsetX, event.offsetY, style)
+		})
+	}
 	function mousedownEvent(clientX, clientY, screenX, screenY){
 		let event = document.createEvent("MouseEvents")
 		event.initMouseEvent("click", true, true, document.defaultView, 0, screenX, screenY, clientX, clientY)
-		div.dispatchEvent(event)
+		for(let i = 0; i < divAll.length; i ++){
+			divAll[i].dispatchEvent(event)
+		}
 	}
 
 </script>

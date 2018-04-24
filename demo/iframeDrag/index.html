@@ -52,10 +52,12 @@
 			this.status = true
 			this.offsetX = offsetX
 			this.offsetY = offsetY
-			//假设只读取宽、高、背景色
+			//假设只读取宽、高、背景色、border-radius
 			transition.style.height = style.height
 			transition.style.width = style.width
 			transition.style.background = style.backgroundColor
+			transition.style.background = style.backgroundColor
+			transition.style.borderRadius = style.borderRadius
 		},
 		dragEnd() {
 			this.status = false
