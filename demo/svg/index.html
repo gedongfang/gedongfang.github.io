@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no"/>
+    <style>
+        html,body,svg{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .parent:hover{
+            fill: #00B2EE !important;
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox="0 0 1000 1000"></svg> 
+</body>
+<script>
+    window.onresize = function(){
+        const s = document.querySelector("svg") 
+        const style = window.getComputedStyle(s)
+        s.viewBox.baseVal.width = style.width.slice(0,-2)
+        s.viewBox.baseVal.height = style.height.slice(0,-2)
+    }
+    window.onresize()
+</script>
+<script type="module" src="event.js"></script>
+<script type="module" src="model.js"></script>
+<script type="module">
+    import {Parent, Line, render} from "./model.js"
+
+    const p1 = new Parent(50, 50)
+    const p2 = new Parent(400, 100)
+    const p3 = new Parent(70, 250)
+
+   
+    const l1 = new Line(p1, p2, "#00CDCD")
+    const l2 = new Line(p1, p2, "#32CD32")
+    const l3 = new Line(p1, p2, "#FFA500")
+
+    const l4 = new Line(p2, p3)
+
+    render()
+</script>
+</html>
