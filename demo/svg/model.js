@@ -190,9 +190,6 @@ class Line{
 		this.line = null
 		Line.list.push(this)
 	}
-	getHeight(){
-		return this.line.height.baseVal.value
-	}
 	getOtherChild(child){
 		return this.start === child ? this.end : this.start
 	}
