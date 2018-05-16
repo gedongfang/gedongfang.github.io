@@ -36,6 +36,9 @@ class Parent{
 		})
 		this.reviseHeight(Math.max(this.leftHeight, this.rightHeight), true)
 		this.updateChildrenPositionY()
+		if(children.length === 1 && this.rect){
+			this.insertAfter(children[0])
+		}
 	}
 	removeChild(child){
 		this.reviseHeight(-Math.max(this.leftHeight, this.rightHeight))
@@ -110,11 +113,20 @@ class Parent{
 		})
 	}
 	childrenSort(children){
-		children.sort(function(childA,childB){
+		children.sort(function(childA, childB){
 			let otherA = childA.line.getOtherChild(childA)
 			let otherB = childB.line.getOtherChild(childB)
 			return otherA.y - otherB.y
 		})
+	}
+	insertAfter(child) {
+		const list = Parent.list
+		let i = list.getIndex(this)
+		if(list[i + 1]){
+			this.rect.parentNode.insertBefore(child.rect, list[i + 1].rect)
+		}else{
+			this.rect.parentNode.appendChild(child.rect)
+		}
 	}
 }
 Parent.list = []
@@ -154,6 +166,7 @@ class Child{
     					}else{
     						parent.addChildren(this)
     						parent.updateOtherChildPositionX(this)
+    						parent.updateChildrenPositionY()
     						return
     					}	
     				}
@@ -201,15 +214,10 @@ class Line{
 	    })
 	}
 	updatePosition(child){
-		if(!this.line){
-			return
-		}
-		if(child === this.start){
-			this.line.x1.baseVal.value = this.start.x + this.start.width / 2
-			this.line.y1.baseVal.value = this.start.y + this.start.height / 2
-		}else{
-			this.line.x2.baseVal.value = this.end.x + this.end.width / 2
-			this.line.y2.baseVal.value = this.end.y + this.end.height / 2
+		if(this.line){
+			let [x, y] = child === this.start ? [this.line.x1, this.line.y1] : [this.line.x2, this.line.y2]
+			x.baseVal.value = child.x + child.width / 2
+			y.baseVal.value = child.y + child.height / 2
 		}
 	}
 }
@@ -221,9 +229,15 @@ function render(){
 			ele.createSvg()
 		})
 	}
+	function renderParentSvg(array){
+		array.forEach(ele => {
+			ele.createSvg()
+			renderSvg(ele.childrenLeft)
+			renderSvg(ele.childrenRight)
+		})
+	}
 	renderSvg(Line.list)
-	renderSvg(Parent.list)
-	renderSvg(Child.list)
+	renderParentSvg(Parent.list)
 }
 
 function createSvg(tag, attr) {    
@@ -235,14 +249,22 @@ function createSvg(tag, attr) {
     return svg
 }
 
-Array.prototype.remove = function(ele){
-	let boo = false
+Array.prototype.getIndex = function(ele){
+	let index = -1
 	for(let i = 0; i < this.length; i++){
 		if(this[i] === ele){
-			this.splice(i, 1)
-			boo = true
+			index = i
 			break
 		}
+	}
+	return index
+}
+Array.prototype.remove = function(ele){
+	let boo = false
+	const index = this.getIndex(ele)
+	if(index !== -1){
+		this.splice(index, 1)
+		boo = true
 	}
 	return boo
 }
