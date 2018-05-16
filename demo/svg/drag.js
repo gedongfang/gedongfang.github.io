@@ -1,6 +1,4 @@
-
-var state = {
-	ratio: 2,
+const state = {
 	event:{
 		x: null,
 		y: null,
@@ -17,7 +15,6 @@ body.addEventListener("mousedown", event => {
 	state.event.x = event.offsetX
 	state.event.y = event.offsetY
 })
-
 body.addEventListener("mousemove", event => {
 	if(state.mousemove){
 		state.event.lastX = state.event.x
@@ -43,4 +40,14 @@ body.addEventListener("mouseup", event => {
 	}
 })
 
-export default state
+function listen(dom){
+	return {
+		addEventListener(act, fn) {
+			dom.addEventListener("mousedown", () => {
+				state[act] = fn
+			})
+			return this
+		}
+	}
+}
+export default listen

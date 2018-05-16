@@ -1,4 +1,4 @@
-import eventListener from "./event.js"
+import drag from "./drag.js"
 
 export {Parent, Line, render}
 
@@ -56,10 +56,8 @@ class Parent{
 	        transform: "translate(" + this.x + " " + this.y + ")"
 	    })
 		this.rect = rect
-	    rect.addEventListener("mousedown", event => {
-	    	eventListener.mousemove = function(e){
-	    		this.move(e.x - e.lastX, e.y - e.lastY)
-	    	}.bind(this)
+	    drag(rect).addEventListener("mousemove", event => {
+	    	this.move(event.x - event.lastX, event.y - event.lastY)
 	    })
 	}
 	move(x = 0, y = 0){
@@ -70,18 +68,21 @@ class Parent{
 			this.rect.transform.baseVal[0].matrix.f = this.y
 		}
 		this.updateChildrenPositionX()
-		this.updateOtherChildrenPositionX()
+		this.updateOtherChildPositionX()
 	}
-	updateOtherChildrenPositionX(child){
+	updateOtherChildPositionX(child){
+		const children = new Set()
 		if(child){
-			child.line.getOtherChild(child).parent.updateChildrenPositionX()
-		}else{
-			const s = new Set()
-			this.childrenLeft.forEach(child => s.add(child.line.getOtherChild(child).parent))
-			this.childrenRight.forEach(child => s.add(child.line.getOtherChild(child).parent))
-			for (let parent of s) {
-				parent.updateChildrenPositionX()
-			}
+			children.add(child)
+		}else{	
+			this.childrenLeft.forEach(child => children.add(child))
+			this.childrenRight.forEach(child => children.add(child))
+		}
+		for (let child of children) {
+			const otherChild = child.line.getOtherChild(child)
+			const otherParent = otherChild.parent
+			otherParent.removeChild(otherChild)
+			otherParent.addChildren(otherChild)
 		}
 	}
 	updateChildrenPositionX(){
@@ -106,7 +107,6 @@ class Parent{
 		this.childrenRight.forEach(child => {
 			child.updatePosition(this.x + this.width - child.width / 2 , y)
 			y += 2 * child.height 
-			
 		})
 	}
 	childrenSort(children){
@@ -139,29 +139,27 @@ class Child{
 	        transform: "translate(" + this.x + " " + this.y + ")"
 	    })
 	    this.rect = rect
-	    rect.addEventListener("mousedown", event => {
-	    	eventListener.mousemove = function(e){
-	    		this.move(e.x - e.lastX, e.y - e.lastY)
-	    		rect.style.pointerEvents = "none"
-	    	}.bind(this)
-	    	eventListener.mouseup = function(e){
-	    		rect.style.pointerEvents = ""
-	    		this.parent.removeChild(this)
-	    		if(e.target.className && e.target.className.baseVal === "parent"){
-	    			for(let i = 0; i < Parent.list.length; i++){
-	    				const parent = Parent.list[i]
-	    				if(parent.rect === e.target){
-	    					if(this.line.getOtherChild(this).parent === parent){
-	    						break
-	    					}else{
-	    						parent.addChildren(this)
-	    						return
-	    					}	
-	    				}
-	    			}
-	    		}
-	    		this.parent.addChildren(this)
-	    	}.bind(this)
+	    drag(rect).addEventListener("mousemove", event => {
+	    	this.move(event.x - event.lastX, event.y - event.lastY)
+	     	rect.style.pointerEvents = "none"
+	    }).addEventListener("mouseup", event => {
+    		rect.style.pointerEvents = ""
+    		this.parent.removeChild(this)
+    		if(event.target.className && event.target.className.baseVal === "parent"){
+    			for(let i = 0; i < Parent.list.length; i++){
+    				const parent = Parent.list[i]
+    				if(parent.rect === event.target){
+    					if(this.line.getOtherChild(this).parent === parent){
+    						break
+    					}else{
+    						parent.addChildren(this)
+    						parent.updateOtherChildPositionX(this)
+    						return
+    					}	
+    				}
+    			}
+    		}
+    		this.parent.addChildren(this)
 	    })
 	}
 	move(x = 0, y = 0){
