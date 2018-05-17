@@ -89,8 +89,7 @@ class Parent{
 		}
 	}
 	updateChildrenPositionX(){
-		const left = this.childrenLeft
-		const right = this.childrenRight
+		const [left, right] = [this.childrenLeft, this.childrenRight]
 		this.reviseHeight(-Math.max(this.leftHeight, this.rightHeight))
 		this.childrenLeft = []
 		this.childrenRight = []
@@ -114,9 +113,7 @@ class Parent{
 	}
 	childrenSort(children){
 		children.sort(function(childA, childB){
-			let otherA = childA.line.getOtherChild(childA)
-			let otherB = childB.line.getOtherChild(childB)
-			return otherA.y - otherB.y
+			return childA.line.getOtherChild(childA).y - childB.line.getOtherChild(childB).y
 		})
 	}
 	insertAfter(child) {
@@ -141,7 +138,6 @@ class Child{
 		this.parent = parent
 		this.line = line
 		this.rect = null
-		Child.list.push(this)
 	}
 	createSvg(){
 		const rect = createSvg('rect', {
@@ -190,7 +186,6 @@ class Child{
 		this.line.updatePosition(this)
 	}
 }
-Child.list = []
 
 class Line{
 	constructor(startParent, endParent, fill = "#FF6A6A"){
